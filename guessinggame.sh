@@ -8,17 +8,17 @@
 GuessingGame()
 {
 	true=1
-	while [[ $true  ]]; do
+	while [ $true ]; do
 		echo "enter number of files in the directory"
 		read no_of_lines
-		count=${ls -l | grep ^[\-] | wc -l}
+		count=$(ls -l | grep ^[\-] | wc -l)
 		if [[ $count -eq $no_of_lines ]]; then
 			echo "You guessed right Congratulations"
 			exit 0
 		elif [[ $count -lt $no_of_lines ]]; then
-			echo "You guessed less Try once more"
-		else
 			echo "You guessed more Try once more"
+		else
+			echo "You guessed less Try once more"
 		fi
 	done
 }
